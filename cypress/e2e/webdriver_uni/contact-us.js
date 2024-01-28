@@ -1,4 +1,3 @@
-/// <reference types = "Cypress" />
 
 describe("Test contact Us form via WebdriverUni", () => {
     it("Should be able to submit a succesfull submission via contact us form", () => {
