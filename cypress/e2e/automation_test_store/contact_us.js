@@ -7,6 +7,7 @@ describe("Test contact Us form via Automation Test Store", () => {
     // cy.xpath("a[contains(@href, 'contact')]");
     cy.get("#ContactUsFrm_first_name").type("John");
     cy.get("#ContactUsFrm_email").type("john.doe@gmail.com");
+    cy.get("#ContactUsFrm_email").should('have.attr', 'name', 'email');  
     cy.get("#ContactUsFrm_enquiry").type(
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In sem justo, commodo ut, suscipit at, pharetra vitae, orci."
     );
