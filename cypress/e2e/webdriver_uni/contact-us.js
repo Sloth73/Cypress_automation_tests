@@ -5,6 +5,7 @@ describe("Test contact Us form via WebdriverUni", () => {
          // cy.get("#contact-us > .thumbnail").click();
         cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
         cy.document().should("have.property", "charset").and('eq', 'UTF-8');
+        cy.title().should("include", "WebDriver | Contact Us");
         cy.get('[name="first_name"]').type("John");
         cy.get('[name="last_name"]').type("Doe");
         cy.get('[name="email"]').type("john.doe@gmail.com");
