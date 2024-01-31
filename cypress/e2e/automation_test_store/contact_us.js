@@ -11,6 +11,10 @@ describe("Test contact Us form via Automation Test Store", () => {
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In sem justo, commodo ut, suscipit at, pharetra vitae, orci."
     );
     cy.get("button[title='Submit']").click();
+    cy.get(".mb40 > :nth-child(3)").should(
+      "have.text",
+      "Your enquiry has been successfully sent to the store owner!"
+    );  
 
   });
 });
