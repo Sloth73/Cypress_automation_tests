@@ -4,7 +4,7 @@ describe("Test contact Us form via Automation Test Store", () => {
   it("Should be able to submit a succesfull submission via contact us form", () => {
     cy.visit("https://automationteststore.com/");
     cy.get("a[href$='contact']").click().then(function (buttonText) {
-      console.log('Just clicked on ' + buttonText.text())
+      console.log /* cy.log */ ('Just clicked on ' + buttonText.text())
     });
     // $ means ends with
     // .then returns promise just as in JS -> after then - JS code, not Cypress code.
