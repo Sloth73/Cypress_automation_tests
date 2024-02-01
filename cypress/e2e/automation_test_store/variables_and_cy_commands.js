@@ -44,7 +44,11 @@ describe("Vrifying variables, Cypress command and jQuery commands", () => {
       cy.contains("#ContactUsFrm", "Contact Us Form").then(text => {
           const labelText = text.find("#field_11").text();
           expect(labelText).to.contain("First name");
+          // Embedded approach (Closure)
+          cy.get("#field_11").then(lblText => {
+              cy.log(lblText.text());
+              cy.log(labelText);
+          });
       });
-    // Embedded approach (Closure)
   });
 });
