@@ -3,8 +3,16 @@
 describe("Test contact Us form via Automation Test Store", () => {
   it("Should be able to submit a succesfull submission via contact us form", () => {
     cy.visit("https://automationteststore.com/");
-    cy.get("a[href$='contact']").click();  //$ means ends with
-    // cy.xpath("a[contains(@href, 'contact')]");
+    cy.get("a[href$='contact']").click().then(function (buttonText) {
+      console.log('Just clicked on ' + buttonText.text())
+    });
+    // $ means ends with
+    // .then returns promise just as in JS -> after then - JS code, not Cypress code.
+    // Function parameter becomes first selcted element(with cy.get).
+    // Text() is jQuery command - transfering element to text.
+    // If console.log is written alone - becomes executed before the test starts
+
+    // cy.xpath("a[contains(@href, 'contact')]"); - xpath
     cy.get("#ContactUsFrm_first_name").type("John");
     cy.get("#ContactUsFrm_email").type("john.doe@gmail.com");
     cy.get("#ContactUsFrm_email").should('have.attr', 'name', 'email');  
