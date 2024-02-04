@@ -12,7 +12,8 @@ describe("Alias and invoke", () => {
         cy.visit("https://automationteststore.com/");
         //   cy.get("a[href*='product/category&path']").contains("Hair Care").click();
         cy.get(".thumbnail").as('productThumbnail')
-        cy.get('@productThumbnail').its('length').should('eq', 16)
+        cy.get('@productThumbnail').its('length').should('eq', 16);
+        cy.get("@productThumbnail").find(".productcart").invoke('attr', 'title').should('contain', 'Add to Cart');
             
     })
   });
