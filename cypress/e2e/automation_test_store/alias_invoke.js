@@ -30,10 +30,13 @@ describe("Alias and invoke", () => {
       cy.get('@itemPrice').then($linkText => {
           let itemPrice = $linkText.split('$');
         //   cy.log(itemPrice)
+          let priceSum = 0;
           let i;
           for (i = 0; i < itemPrice.length; i++) {
-              cy.log(itemPrice[i]);
-          }
+            //   cy.log(itemPrice[i]);
+              priceSum += Number(itemPrice[i]);
+            }
+            // cy.log(priceSum)
       })
   });
 });
