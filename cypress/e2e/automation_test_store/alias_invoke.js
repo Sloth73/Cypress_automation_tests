@@ -27,6 +27,7 @@ describe("Alias and invoke", () => {
     //   cy.log($el.text())
     // });
       cy.get('.thumbnail').find('.oneprice').invoke('text').as('itemPrice');
+      let itemPriceTotal = 0
       cy.get('@itemPrice').then($linkText => {
           let itemPrice = $linkText.split('$');
         //   cy.log(itemPrice)
@@ -37,6 +38,8 @@ describe("Alias and invoke", () => {
               priceSum += Number(itemPrice[i]);
             }
             // cy.log(priceSum)
+          itemPriceTotal += priceSum
+        //   cy.log(itemPriceTotal)
       })
   });
 });
