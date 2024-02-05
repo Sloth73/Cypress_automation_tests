@@ -27,6 +27,7 @@ describe("Alias and invoke", () => {
     //   cy.log($el.text())
     // });
       cy.get('.thumbnail').find('.oneprice').invoke('text').as('itemPrice');
+      cy.get(".thumbnail").find(".pricenew").invoke("text").as("saleItemPrice");
       let itemPriceTotal = 0
       cy.get('@itemPrice').then($linkText => {
           let itemPrice = $linkText.split('$');
@@ -40,6 +41,17 @@ describe("Alias and invoke", () => {
             // cy.log(priceSum)
           itemPriceTotal += priceSum
         //   cy.log(itemPriceTotal)
+      })
+      cy.get('@saleItemPrice').then($linkText2 => {
+          let saleItemPrice = $linkText2.split('$');
+          let salePriceSum = 0;
+          let index;
+          for (index = 0; index < saleItemPrice.length; index++) {
+              salePriceSum += Number(saleItemPrice[index]);
+          }
+        //   cy.log(salePriceSum)
+          itemPriceTotal += salePriceSum
+          cy.log(itemPriceTotal)
       })
   });
 });
