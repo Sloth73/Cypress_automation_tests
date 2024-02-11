@@ -21,4 +21,15 @@ describe("Handle js alerts", () => {
         cy.get("#confirm-alert-text").contains("You pressed OK!");
       
     });
+    it("Validate js confirm alert box works correctly when clicking cancel", () => {
+      cy.visit("http://www.webdriveruniversity.com");
+      cy.get("#popup-alerts")
+        .invoke("removeAttr", "target")
+        .click({ force: true });
+      cy.get("#button4").click();
+      cy.on("window:confirm", (str) => {
+        return false;
+      });
+      cy.get("#confirm-alert-text").contains("You pressed Cancel!");
+    });
 });
