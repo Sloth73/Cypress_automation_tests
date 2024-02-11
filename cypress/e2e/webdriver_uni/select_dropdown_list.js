@@ -6,9 +6,9 @@ describe("Interact with dropdown list via webdriveruni", () => {
     cy.get("#dropdown-checkboxes-radiobuttons")
       .invoke("removeAttr", "target")
       .click({ force: true });
-      cy.get('#dropdowm-menu-1')
-      cy.get("#dropdowm-menu-2");
-      cy.get("#dropdowm-menu-3");
+      cy.get('#dropdowm-menu-1').select('c#')
+      cy.get("#dropdowm-menu-2").select('testng');
+      cy.get("#dropdowm-menu-3").select('jquery');
   });
 
 });
