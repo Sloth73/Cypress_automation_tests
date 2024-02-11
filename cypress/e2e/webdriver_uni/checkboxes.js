@@ -18,4 +18,11 @@ describe("Verify checkboxes via webdriveruni", () => {
           .click({ force: true });
         cy.get(":nth-child(5) > input").uncheck().should('not.be.checked');
     });
+    it("Check multiple checkboxes", () => {
+      cy.visit("http://www.webdriveruniversity.com");
+      cy.get("#dropdown-checkboxes-radiobuttons")
+        .invoke("removeAttr", "target")
+        .click({ force: true });
+        cy.get("input[type='checkbox']").check().should('be.checked');
+    });
 });
