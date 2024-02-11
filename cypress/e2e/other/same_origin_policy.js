@@ -2,10 +2,14 @@
 
 describe("Cypress web security", () => {
   it("Validate visiting two different domains", () => {
-    
+    cy.visit("https://www.webdriveruniversity.com/");
+    cy.visit("https://automationteststore.com/");
+    // This code will fail due to security mesures, can't visit two different superdomains in the same test
   });
 
-  it("", () => {
-    
+  it("Validate visiting two different domains via user action", () => {
+    cy.visit("https://www.webdriveruniversity.com/");
+    cy.get("#automation-test-store").invoke("removeAttr", "target").click();
+    // This code will also fail due to same resons
   });
 });
