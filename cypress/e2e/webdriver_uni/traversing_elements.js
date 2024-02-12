@@ -12,12 +12,12 @@ describe("Traversing DOM elements in Cypress", () => {
       cy.get('.traversal-badge').closest('ul').should('have.class', 'list-group')
     });
   
-  it.only("eq() to retrieve a specific element based on index", () => {
+  it("eq() to retrieve a specific element based on index", () => {
       cy.get('.traversal-drinks-list > *').eq('2').should('contain', 'Milk')
     });
   
-    it("filter() to retrieve DOM elements that match a specific selector", () => {
-	
+  it.only("filter() to retrieve DOM elements that match a specific selector", () => {
+      cy.get('.btn-group-toggle > *').filter('.active').should('contain', 'Button-1')
     });
   
     it("find() to retrieve DOM elements of a given selector", () => {
