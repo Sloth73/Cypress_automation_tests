@@ -4,10 +4,12 @@ describe("Traversing DOM elements in Cypress", () => {
     cy.visit("http://webdriveruniversity.com/");
     cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
   })
-    it("children() to get the children of DOM elements", () => {
+  it.only("children() to get the children of DOM elements", () => {
+    cy.get(".traversal-breadcrumb").children('.active').should('contain', 'Contact Us')
     });
   
-    it("closest() to validate the closest ancestor DOM element", () => {
+  it("closest() to validate the closest ancestor DOM element", () => {
+      
     });
   
     it("eq() to retrieve a specific element based on index", () => {
