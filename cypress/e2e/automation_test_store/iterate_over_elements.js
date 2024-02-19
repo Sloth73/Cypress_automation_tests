@@ -18,4 +18,9 @@ describe("Iterating over elements", () => {
     // });
     cy.selectProduct("Curls to straight Shampoo");
   });
+  it("Add another specific product to basket", () => {
+    cy.visit("https://automationteststore.com/");
+    cy.get("a[href*='product/category&path']").contains("Hair Care").click();
+    cy.selectProduct("Seaweed Conditioner");
+  });
 });
