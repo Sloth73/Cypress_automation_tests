@@ -7,13 +7,18 @@ describe("Handeling data via webdriveruni", () => {
   });
     it("Calculate and assert the age of all users", () => {
         const userDetails = [];
+        let number = 0;
       cy.get('#thumbnail-1 td').each(($el, i, $list) => {
           userDetails[i] = $el.text();
       }).then(() => {
           let i;
-          for (i = 0; i < userDetails.length; i++){
-              cy.log(userDetails[i]);
+          for (i = 0; i < userDetails.length; i++) {
+              //   cy.log(userDetails[i]);
+              if (Number(userDetails[i])) {
+                  number += Number(userDetails[i])
+              }
           }
+            cy.log(number)
 })
   });
 });
