@@ -4,7 +4,9 @@ describe("Handeling data via webdriveruni", () => {
     cy.visit("http://webdriveruniversity.com/");
     cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
   });
-  it("children() to get the children of DOM elements", () => {
-    cy.get(".traversal-breadcrumb").children(".active").should("contain", "Contact Us");
+  it("Calculate and assert the age of all users", () => {
+      cy.get('#thumbnail-1 td').each(($el, i, $list) => {
+    
+})
   });
 });
