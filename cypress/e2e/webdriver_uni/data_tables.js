@@ -18,7 +18,8 @@ describe("Handeling data via webdriveruni", () => {
                   number += Number(userDetails[i])
               }
           }
-            cy.log(number)
+          cy.log(number)
+          expect(number).to.eq(322);
 })
   });
 });
